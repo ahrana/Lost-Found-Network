@@ -1,0 +1,278 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+  <title>Lost and Found Network</title>
+
+</head>
+<body>
+
+  <!-- Title Section -->
+  <header class="hero bg-primary text-white text-center py-5">
+    <h1 class="display-4">Lost & Found Network</h1>
+    <p class="lead">Connecting Lost Items with Their Owners</p>
+    <a href="#services" class="btn btn-light btn-lg">Learn More</a>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">About Us</h2>
+      <p>Our platform serves as a central hub for reporting lost items, searching for lost belongings, and facilitating reunions. We understand the frustration and stress that comes with losing something valuable, which is why we strive to provide a seamless and efficient process for both reporting and finding lost items. </p>
+   
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Services</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <i class="fas fa-search fa-4x mb-3"></i>
+              <h4 class="card-title">Lost Item Search</h4>
+              <p class="card-text">Search for lost items based on item name.we hope you will find your item.</p>
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">Search</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <i class="fas fa-plus-circle fa-4x mb-3"></i>
+              <h4 class="card-title">Submit Lost Item</h4>
+              <p class="card-text">Submit details about a lost item to help find its rightful owner.</p>
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitModal">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <i class="fas fa-handshake fa-4x mb-3"></i>
+              <h4 class="card-title">Recover Found Items</h4>
+              <p class="card-text">Connect with the owners of found items and arrange for their return.</p>
+              <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recoverModal">Recover</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Lost Item Search Modal -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Lost Item Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="itemName" class="form-label">Item Name</label>
+              <input type="text" class="form-control" id="itemName">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="searchLostItem()">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit Lost Item Modal -->
+  <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="submitModalLabel">Submit Lost Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="itemName" class="form-label">Item Name</label>
+              <input type="text" class="form-control" id="itemName">
+            </div>
+            <div class="mb-3">
+              <label for="lostArea" class="form-label">Lost Area</label>
+              <input type="text" class="form-control" id="lostArea">
+            </div>
+            <div class="mb-3">
+              <label for="itemDescription" class="form-label">Item Description</label>
+              <textarea class="form-control" id="itemDescription" rows="4"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitLostItem()">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recover Found Items Modal -->
+  <div class="modal fade" id="recoverModal" tabindex="-1" aria-labelledby="recoverModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="recoverModalLabel">Recover Found Items</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="foundItemName" class="form-label">Found Item Name</label>
+              <input type="text" class="form-control" id="foundItemName">
+            </div>
+            <div class="mb-3">
+              <label for="foundItemArea" class="form-label">Found Item Area</label>
+              <input type="text" class="form-control" id="foundItemArea">
+            </div>
+            <div class="mb-3">
+              <label for="foundItemDescription" class="form-label">Found Item Description</label>
+              <textarea class="form-control" id="foundItemDescription" rows="4"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="recoverFoundItem()">Recover</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- Submitted Lost Item Section -->
+<section id="submitted-items" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Submitted Lost Items</h2>
+    <div id="submittedItems">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Keys</h5>
+          <p class="card-text">Lost Area: Main Road,Dubai</p>
+          <p class="card-text">Description: Set of house and car keys</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Wallet</h5>
+          <p class="card-text">Lost Area: Shopping Mall</p>
+          <p class="card-text">Description: Black leather wallet with ID and credit cards</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Mobile Phone</h5>
+          <p class="card-text">Lost Area: Bus Stop</p>
+          <p class="card-text">Description: iPhone 12 with a blue phone case</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Contact Information</h5>
+              <p class="card-text">
+                <i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country
+              </p>
+              <p class="card-text">
+                <i class="fas fa-envelope"></i> info@example.com
+              </p>
+              <p class="card-text">
+                <i class="fas fa-phone"></i> +1 123 456 7890
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>Lost & Found Network &copy; 2023. All Rights Reserved.</p>
+    
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function searchLostItem() {
+      var itemName = document.getElementById("itemName").value;
+      // Perform search operation based on itemName
+      // Display search results on the webpage
+    }
+
+    function submitLostItem() {
+      var itemName = document.getElementById("itemName").value;
+      var lostArea = document.getElementById("lostArea").value;
+      var itemDescription = document.getElementById("itemDescription").value;
+
+      // Create a new HTML element to display the submitted lost item
+      var submittedItem = document.createElement("div");
+      submittedItem.classList.add("card", "mb-3");
+      submittedItem.innerHTML = `
+        <div class="card-body">
+          <h5 class="card-title">${itemName}</h5>
+          <p class="card-text">Lost Area: ${lostArea}</p>
+          <p class="card-text">Description: ${itemDescription}</p>
+        </div>
+      `;
+
+      var submittedItems = document.getElementById("submittedItems");
+      submittedItems.appendChild(submittedItem);
+
+      // Clear the form fields
+      document.getElementById("itemName").value = "";
+      document.getElementById("lostArea").value = "";
+      document.getElementById("itemDescription").value = "";
+
+      // Close the modal
+      var submitModal = bootstrap.Modal.getInstance(document.getElementById("submitModal"));
+      submitModal.hide();
+    }
+
+    function recoverFoundItem() {
+      var foundItemName = document.getElementById("foundItemName").value;
+      var foundItemArea = document.getElementById("foundItemArea").value;
+      var foundItemDescription = document.getElementById("foundItemDescription").value;
+
+      // Perform recovery operation for the found item
+
+      // Clear the form fields
+      document.getElementById("foundItemName").value = "";
+      document.getElementById("foundItemArea").value = "";
+      document.getElementById("foundItemDescription").value = "";
+
+      // Close the modal
+      var recoverModal = bootstrap.Modal.getInstance(document.getElementById("recoverModal"));
+      recoverModal.hide();
+    }
+  </script>
+</body>
